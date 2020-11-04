@@ -7,7 +7,7 @@
     $: beans = Math.round((fullBeans + Number.EPSILON) * 100) / 100;
 
     function numOrZero(s) {
-        const ns = parseInt(s, 10);
+        const ns = parseFloat(s, 10);
         if (isNaN(ns)) {
             return 0;
         }
