@@ -20,10 +20,28 @@ module.exports = {
     },
   },
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        coffee: {
+          adept: "#775511",
+          brown: "#4a2c2a",
+          burnt: "#271b10",
+          diva: "#bea88d",
+          iced: "#b18f6a",
+          irish: "#62422b",
+          plain: "#6f4e37",
+        },
+        linen: "#faf0e6",
+      },
+      backgroundImage: theme => ({
+          "coffee-dark": "url('coffee-dark.jpeg')",
+      }),
+    },
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require('tailwindcss-dark-mode')(),
+  ],
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,

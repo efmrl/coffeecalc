@@ -1,3 +1,5 @@
+dependencies:
+  yup: 0.29.3
 devDependencies:
   postcss: 8.1.4
   postcss-import: 12.0.1
@@ -8,6 +10,7 @@ devDependencies:
   svelte-preprocess: 4.5.1_5395c697f50387c8d935322f3ab1e62e
   svite: 0.8.0_c08e227f105cc557704c8276ee055745
   tailwindcss: 1.9.6
+  tailwindcss-dark-mode: 1.1.7
 lockfileVersion: 5.2
 packages:
   /@babel/code-frame/7.10.4:
@@ -35,6 +38,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-kFsOS0IbsuhO5ojF8Hc8z/8vEIOkylVBrjiZUbLTE3XFe0Qi+uu6HjzQixkFaqr0ZPAMZcBVxEwmsnsLPZ2Xsw==
+  /@babel/runtime/7.12.1:
+    dependencies:
+      regenerator-runtime: 0.13.7
+    dev: false
+    resolution:
+      integrity: sha512-J5AIf3vPj3UwXaAzb5j1xM4WAQDX3EMgemF8rjCP3SoW09LfRKAXQKt6CoVYl230P6iWdRcBbnLDDdnqWxZSCA==
   /@babel/types/7.12.1:
     dependencies:
       '@babel/helper-validator-identifier': 7.10.4
@@ -1249,6 +1258,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-dVsPA/UwQ8+2uoFe5GHtiBMu48dWLTdsuEd7CKGlZlD78r1TTWBvDuFaFGKCo/ZfEr95Uk56vZoX86OsHkUeIg==
+  /fn-name/3.0.0:
+    dev: false
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-eNMNr5exLoavuAMhIUVsOKF79SWd/zG104ef6sxBTSw+cZc6BXdQXDvYcGvp0VbxVVSp1XDUNoz7mg1xMtSznA==
   /follow-redirects/1.13.0:
     dev: true
     engines:
@@ -1874,6 +1889,10 @@ packages:
       node: '>=4.0.0'
     resolution:
       integrity: sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==
+  /lodash-es/4.17.15:
+    dev: false
+    resolution:
+      integrity: sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
   /lodash._reinterpolate/3.0.0:
     dev: true
     resolution:
@@ -1900,7 +1919,6 @@ packages:
     resolution:
       integrity: sha1-JMS/zWsvuji/0FlNsRedjptlZWE=
   /lodash/4.17.20:
-    dev: true
     resolution:
       integrity: sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
   /log-symbols/3.0.0:
@@ -2745,6 +2763,10 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
+  /property-expr/2.0.4:
+    dev: false
+    resolution:
+      integrity: sha512-sFPkHQjVKheDNnPvotjQmm3KD3uk1fWKUN7CrpdbwmUx3CrG3QiM8QpTSimvig5vTXmTvjz7+TDvXOI9+4rkcg==
   /proxy-addr/2.0.6:
     dependencies:
       forwarded: 0.1.2
@@ -2837,6 +2859,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-fDnlZ+AybAS3C7Q9xDq5y8A2z+lT63zLbynew/lur/IR24OQF5x98tfNwf79mzEdfywZ0a2wpM860FhFfMxZlA==
+  /regenerator-runtime/0.13.7:
+    dev: false
+    resolution:
+      integrity: sha512-a54FxoJDIr27pgf7IgeQGxmqUNYrcV338lf/6gH456HZ/PhX+5BcwHXG9ajESmwe6WRO0tAzRUrRmNONWgkrew==
   /require-directory/2.1.1:
     dev: true
     engines:
@@ -3308,6 +3334,17 @@ packages:
       svelte-hmr: 0.11.1
     resolution:
       integrity: sha512-1ppkYl0MpBnhLNkO0KTOD8alG7EaMcOP/k35gkM+gtQYQ3gpnINpfVogtt7+CaqQ3/Cvn66sNM6iLVk2qoY9zQ==
+  /synchronous-promise/2.0.15:
+    dev: false
+    resolution:
+      integrity: sha512-k8uzYIkIVwmT+TcglpdN50pS2y1BDcUnBPK9iJeGu0Pl1lOI8pD6wtzgw91Pjpe+RxtTncw32tLxs/R0yNL2Mg==
+  /tailwindcss-dark-mode/1.1.7:
+    dependencies:
+      postcss-selector-parser: 6.0.4
+      tailwindcss: 1.9.6
+    dev: true
+    resolution:
+      integrity: sha512-RGYAlOJq4VynCy7LRAIJPHHvV1E3wivMD+K2njVlqIJsegqAZSGIOYnlQwNnkYrQCdFcNZj/ygzplB4y4mYITg==
   /tailwindcss/1.9.6:
     dependencies:
       '@fullhuman/postcss-purgecss': 2.3.0
@@ -3383,6 +3420,10 @@ packages:
       node: '>=0.6'
     resolution:
       integrity: sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
+  /toposort/2.0.2:
+    dev: false
+    resolution:
+      integrity: sha1-riF2gXXRVZ1IvvNUILL0li8JwzA=
   /tsscmp/1.0.6:
     dev: true
     engines:
@@ -3616,6 +3657,20 @@ packages:
       node: '>= 4.0.0'
     resolution:
       integrity: sha512-faQrqNMzcPCHGVC2aaOINk13K+aaBDUPjGWl0teOXywElLjyVAB6Oe2jj62jHYtwsU49jXhScYbvPENK+6zAvQ==
+  /yup/0.29.3:
+    dependencies:
+      '@babel/runtime': 7.12.1
+      fn-name: 3.0.0
+      lodash: 4.17.20
+      lodash-es: 4.17.15
+      property-expr: 2.0.4
+      synchronous-promise: 2.0.15
+      toposort: 2.0.2
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-RNUGiZ/sQ37CkhzKFoedkeMfJM0vNQyaz+wRZJzxdKE7VfDeVKH8bb4rr7XhRLbHJz5hSjoDNwMEIaKhuMZ8gQ==
 specifiers:
   postcss: ^8.1.2
   postcss-import: ^12.0.1
@@ -3626,3 +3681,5 @@ specifiers:
   svelte-preprocess: 4.5.1
   svite: ^0.8.0
   tailwindcss: ^1.9.5
+  tailwindcss-dark-mode: ^1.1.7
+  yup: ^0.29.3
