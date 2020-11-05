@@ -16,13 +16,21 @@
 </script>
 
 <div class="flex-grow grid grid-cols-2 content-start gap-2 mt-4 mx-8">
-        <label for="water" class="text-right">Water in ounces:</label>
-        <input name="water" type="number" class="bg-transparent" bind:value={water}>
+    <label for="water" class="text-right">
+        <span class="words">Water in ounces:</span>
+    </label>
+        <input
+            name="water"
+            type="text"
+            size="4"
+            class="words inline leading-tight m-0 p-0 w-20"
+            bind:value={water}
+        />
 
-        <div class="text-right">
-        Beans in grams:
-        </div>
-        <div>
-            {beans}
-        </div>
+    <div class="text-right">
+        <span class="words"> Beans in grams: </span>
+    </div>
+    <div>
+        <span class="words"> {beans} </span>
+    </div>
 </div>

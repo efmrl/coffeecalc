@@ -4,5 +4,5 @@
 </script>
 
 <div class="text-right text-sm mb-2 mr-3">
-  <div>photo by <a href={photoURL} class="underline">{photo}</a></div>
+  <span class="words">photo by <a href={photoURL} class="underline">{photo}</a></span>
 </div>
