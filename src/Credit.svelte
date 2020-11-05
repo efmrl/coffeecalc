@@ -16,13 +16,13 @@
   <div
     in:fly={{ y: 128, duration: 500 }}
     out:fly={{ y: 128, duration: 300 }}
-    class="words mb-3"
+    class="words m-3"
   >
     <p>
       Powered by <a href="https://svelte.dev">Svelte</a>
     </p>
     <p>
-      Hosted by <a  href="https://efmrl.com">efmrl</a>
+      Hosted by <a href="https://efmrl.com">efmrl.com</a>
     </p>
     <p>
       Color inspiration by <a href="https://hexcolor.co">hexcolor.co</a>
