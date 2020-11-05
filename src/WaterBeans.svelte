@@ -13,6 +13,10 @@
         }
         return ns;
     }
+
+    function focus(e) {
+        e.focus();
+    }
 </script>
 
 <div class="flex-grow grid grid-cols-2 content-start gap-2 mt-4 mx-8">
@@ -25,6 +29,7 @@
             size="4"
             class="words inline leading-tight m-0 p-0 w-20"
             bind:value={water}
+            use:focus
         />
 
     <div class="text-right">
