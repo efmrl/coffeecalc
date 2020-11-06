@@ -1,7 +1,11 @@
 <script>
+  import { media } from "./media.js";
+
   import WaterBeans from "./WaterBeans.svelte";
   import Credit from "./Credit.svelte";
-  const world = 'postcss'; // edit world and save to see hmr update
+
+  $: coffeeBG = $media.dark ? "bg-coffee-dark" : "bg-coffee-light";
+  $: wordsBG = $media.dark ? "bg-coffee-diva" : "bg-nearwhite";
 </script>
 
 <style>
@@ -16,12 +20,12 @@
   }
 </style>
 
-<div class="container pictured bg-coffee-dark">
+<div class="container pictured {coffeeBG}">
   <h1 class="text-center text-3xl m-3">
-    <span class="words"> coffeecalc </span>
+    <span class="words {wordsBG}"> coffeecalc </span>
   </h1>
 
-  <WaterBeans />
+  <WaterBeans bind:wordsBG />
 
-  <Credit />
+  <Credit bind:wordsBG />
 </div>

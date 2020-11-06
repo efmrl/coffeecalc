@@ -32,16 +32,16 @@ module.exports = {
           plain: "#6f4e37",
         },
         linen: "#faf0e6",
+        nearwhite: "#fefefe",
       },
       backgroundImage: theme => ({
           "coffee-dark": "url('coffee-dark.jpeg')",
+          "coffee-light": "url('coffee-light.jpeg')",
       }),
     },
   },
   variants: {},
-  plugins: [
-    require('tailwindcss-dark-mode')(),
-  ],
+  plugins: [],
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
