@@ -1,11 +1,11 @@
 <script>
   import { fly } from "svelte/transition";
+  import { media } from "./media.js";
 
   export let wordsBG;
 
-  let photo = "Nathan Dumlao";
-  let photoURL = "https://unsplash.com/@nate_dumlao";
-  /*<span>Photo by <a href="https://unsplash.com/@isaacbenhesed?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Isaac Benhesed</a> on <a href="https://unsplash.com/s/photos/coffee?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>*/
+  $: photo = ($media.dark) ? "Nathan Dumlao" : "Isaac Benhesed";
+  $: photoURL = ($media.dark) ? "https://unsplash.com/@nate_dumlao" : "https://unsplash.com/@isaacbenhesed";
   let moreShow = false;
   let moreWord = "more";
 
