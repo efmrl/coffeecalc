@@ -6,6 +6,13 @@
 
   $: coffeeBG = $media.dark ? "bg-coffee-dark" : "bg-coffee-light";
   $: wordsBG = $media.dark ? "bg-coffee-diva" : "bg-nearwhite";
+  media.subscribe(() => {
+    if ($media.dark) {
+			document.body.classList.add("dark");
+    } else {
+			document.body.classList.remove("dark");
+    }
+  });
 </script>
 
 <style>
