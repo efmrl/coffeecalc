@@ -1,6 +1,6 @@
 {
     "efmrl": "coffeecalc",
     "root_dir": "dist",
-    "app": {},
-    "version": {}
+    "base_host": "efmrl.net:8443",
+    "app": {}
 }
