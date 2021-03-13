@@ -13,6 +13,7 @@
   <WaterBeans />
 
   <Credit />
+  <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="efmrl" data-color="#a96800" data-emoji=""  data-font="Cookie" data-text="Buy me some coffee beans" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
 </main>
 
 <style>
