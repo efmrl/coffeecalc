@@ -2,14 +2,16 @@
   import { fly } from "svelte/transition";
   import { media } from "./media.js";
 
-  $: photo = ($media.dark) ? "Nathan Dumlao" : "Isaac Benhesed";
-  $: photoURL = ($media.dark) ? "https://unsplash.com/@nate_dumlao" : "https://unsplash.com/@isaacbenhesed";
+  $: photo = $media.dark ? "Nathan Dumlao" : "Isaac Benhesed";
+  $: photoURL = $media.dark
+    ? "https://unsplash.com/@nate_dumlao"
+    : "https://unsplash.com/@isaacbenhesed";
   let moreShow = false;
   let moreWord = "more";
 
   function toggleMore() {
     moreShow = !moreShow;
-    moreWord = (moreShow) ? "less" : "more";
+    moreWord = moreShow ? "less" : "more";
   }
 </script>
 
@@ -31,7 +33,7 @@
   </div>
 {/if}
 
-<div class="text-right text-sm mb-2 mr-3">
+<div class="text-left text-sm mb-2 mr-3">
   <span class="words">
     photo by <a href={photoURL} class="underline">{photo}</a>
     <span on:click={toggleMore}>{moreWord}...</span>
