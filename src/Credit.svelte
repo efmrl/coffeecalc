@@ -2,8 +2,6 @@
   import { fly } from "svelte/transition";
   import { media } from "./media.js";
 
-  export let wordsBG;
-
   $: photo = ($media.dark) ? "Nathan Dumlao" : "Isaac Benhesed";
   $: photoURL = ($media.dark) ? "https://unsplash.com/@nate_dumlao" : "https://unsplash.com/@isaacbenhesed";
   let moreShow = false;
@@ -19,7 +17,7 @@
   <div
     in:fly={{ y: 128, duration: 500 }}
     out:fly={{ y: 128, duration: 300 }}
-    class="words {wordsBG} m-3"
+    class="words m-3"
   >
     <p>
       Powered by <a href="https://svelte.dev">Svelte</a>
@@ -34,7 +32,7 @@
 {/if}
 
 <div class="text-right text-sm mb-2 mr-3">
-  <span class="words {wordsBG}">
+  <span class="words">
     photo by <a href={photoURL} class="underline">{photo}</a>
     <span on:click={toggleMore}>{moreWord}...</span>
   </span>
