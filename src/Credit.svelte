@@ -38,13 +38,7 @@
     photo by <a href={photoURL} class="underline">{photo}</a>
     <span on:click={toggleMore}>{moreWord}...</span>
   </span>
-  <a href="https://www.buymeacoffee.com/efmrl" target="_blank" class="buy"
-    ><img
-      src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png"
-      alt="Buy Me A Coffee"
-      style="height: 60px !important;width: 217px !important;"
-    /></a
-  >
+  <!-- you can put a lower-right thingy here in the "right" class -->
 </div>
 
 <style>
@@ -52,7 +46,7 @@
     @apply items-end;
   }
 
-  .buy {
+  .right {
     margin-left: auto;
   }
 </style>
