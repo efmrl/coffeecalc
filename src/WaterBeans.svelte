@@ -1,10 +1,5 @@
 <script>
-  import { mode, water, waterBeans, beansWater, gotBeans } from "./coffee.js";
-
-  let input = 16;
-
-  $: $water = input;
-  $: output = $gotBeans;
+  import { mode, coffeeIn, waterBeans, beansWater, output } from "./coffee.js";
 </script>
 
 <div class="flex-grow grid grid-cols-2 content-start gap-2 mt-4 mx-8">
@@ -16,7 +11,7 @@
     type="text"
     size="4"
     class="words"
-    bind:value={input}
+    bind:value={$coffeeIn}
     use:focus
   />
 
@@ -24,6 +19,6 @@
     <span class="words"> Beans in grams: </span>
   </div>
   <div>
-    <span class="words"> {output} </span>
+    <span class="words"> {$output} </span>
   </div>
 </div>

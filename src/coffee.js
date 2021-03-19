@@ -23,8 +23,7 @@ export const waterUnits = writable(Ounces);
 
 export const ratio = writable(17);
 
-export const water = writable(16);
-export const beans = writable(10);
+export const coffeeIn = writable(16);
 
 function numOrZero(s) {
   const ns = parseFloat(s, 10);
@@ -34,32 +33,17 @@ function numOrZero(s) {
   return ns;
 }
 
-export const gotBeans = derived(
-  [water, waterUnits, beanUnits, ratio],
-  ([$water, $waterUnits, $beanUnits, $ratio]) => {
-    let water = numOrZero($water);
+export const output = derived(
+  [coffeeIn, waterUnits, beanUnits, ratio],
+  ([$coffeeIn, $waterUnits, $beanUnits, $ratio]) => {
+    let input = numOrZero($coffeeIn);
     if ($waterUnits == Ounces) {
-      water *= gramsPerOunce;
+      input *= gramsPerOunce;
     }
-    let beans = water / $ratio;
+    let beans = input / $ratio;
     if (beanUnits == Ounces) {
       beans /= gramsPerOunce;
     }
     return roundIt(beans);
-  }
-);
-
-export const gotWater = derived(
-  [beans, beanUnits, waterUnits, ratio],
-  ([$beans, $beanUnits, $waterUnits, $ratio]) => {
-    let beans = numOrZero($beans);
-    if ($beanUnits == Ounces) {
-      beans *= gramsPerOunce;
-    }
-    let water = beans * $ratio;
-    if ($waterUnits == Ounces) {
-      water /= gramsPerOunce;
-    }
-    return roundIt(water);
   }
 );
