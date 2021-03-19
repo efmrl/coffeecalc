@@ -1,14 +1,29 @@
 <script>
-  import { mode, waterBeans, beansWater } from "./coffee.js";
-  import Water2Beans from "./Water2Beans.svelte";
-  import Beans2Water from "./Beans2Water.svelte";
+  import { mode, water, waterBeans, beansWater, gotBeans } from "./coffee.js";
 
+  let input = 16;
+
+  $: $water = input;
+  $: output = $gotBeans;
 </script>
 
-<div class="flex-grow">
-  {#if $mode == waterBeans}
-    <Water2Beans />
-  {:else}
-    <Beans2Water />
-  {/if}
+<div class="flex-grow grid grid-cols-2 content-start gap-2 mt-4 mx-8">
+  <label for="water" class="text-right">
+    <span class="words">Water in ounces:</span>
+  </label>
+  <input
+    name="water"
+    type="text"
+    size="4"
+    class="words"
+    bind:value={input}
+    use:focus
+  />
+
+  <div class="text-right">
+    <span class="words"> Beans in grams: </span>
+  </div>
+  <div>
+    <span class="words"> {output} </span>
+  </div>
 </div>
