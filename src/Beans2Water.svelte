@@ -1,12 +1,17 @@
 <script>
-    import { beans, gotWater } from "./coffee.js";
+  import { beans, gotWater } from "./coffee.js";
+  import Arrows32 from "carbon-icons-svelte/lib/Arrows32";
 
   function focus(e) {
     e.focus();
   }
 </script>
 
-<div class="grid grid-cols-2 content-start gap-2 mt-4 mx-8">
+<div class="grid grid-cols-3 content-start gap-2 mt-4 mx-8">
+  <button class="words row-span-2 ml-auto">
+    <Arrows32 />
+  </button>
+
   <label for="beans" class="text-right">
     <span class="words">Beans in grams:</span>
   </label>

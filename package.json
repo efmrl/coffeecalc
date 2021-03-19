@@ -5,6 +5,7 @@
     "test": "web-test-runner \"src/**/*.test.js\""
   },
   "dependencies": {
+    "carbon-icons-svelte": "^10.27.0",
     "svelte": "^3.30.0",
     "svelte-media": "^0.0.3",
     "tailwindcss": "^2.0.1"
