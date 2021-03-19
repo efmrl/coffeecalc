@@ -1,41 +1,51 @@
 <script>
-    import { wbSchema } from "./coffee.js";
+  import { mode, waterBeans, beansWater } from "./coffee.js";
+  import Water2Beans from "./Water2Beans.svelte";
+  import Beans2Water from "./Beans2Water.svelte";
 
-    let water = 16;
-    $: realWater = numOrZero(water);
-    $: fullBeans = realWater * 28.3495 / 17;
-    $: beans = Math.round((fullBeans + Number.EPSILON) * 100) / 100;
+  // let water = 16;
 
-    function numOrZero(s) {
-        const ns = parseFloat(s, 10);
-        if (isNaN(ns)) {
-            return 0;
-        }
-        return ns;
-    }
+  // $: realWater = numOrZero(water);
+  // $: fullBeans = (realWater * 28.3495) / 17;
+  // $: beans = Math.round((fullBeans + Number.EPSILON) * 100) / 100;
 
-    function focus(e) {
-        e.focus();
-    }
+  // function numOrZero(s) {
+  //   const ns = parseFloat(s, 10);
+  //   if (isNaN(ns)) {
+  //     return 0;
+  //   }
+  //   return ns;
+  // }
+
+  function focus(e) {
+    e.focus();
+  }
 </script>
 
-<div class="flex-grow grid grid-cols-2 content-start gap-2 mt-4 mx-8">
-    <label for="water" class="text-right">
-        <span class="words">Water in ounces:</span>
-    </label>
-        <input
-            name="water"
-            type="text"
-            size="4"
-            class="words"
-            bind:value={water}
-            use:focus
-        />
-
-    <div class="text-right">
-        <span class="words"> Beans in grams: </span>
-    </div>
-    <div>
-        <span class="words"> {beans} </span>
-    </div>
+<div class="flex-grow">
+  {#if $mode == waterBeans}
+    <Water2Beans />
+  {:else}
+    <Beans2Water />
+  {/if}
 </div>
+<!-- <div class="flex-grow grid grid-cols-2 content-start gap-2 mt-4 mx-8">
+  <label for="water" class="text-right">
+    <span class="words">Water in ounces:</span>
+  </label>
+  <input
+    name="water"
+    type="text"
+    size="4"
+    class="words"
+    bind:value={water}
+    use:focus
+  />
+
+  <div class="text-right">
+    <span class="words"> Beans in grams: </span>
+  </div>
+  <div>
+    <span class="words"> {beans} </span>
+  </div>
+</div> -->

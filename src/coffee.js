@@ -1,11 +1,50 @@
-//import * as yup from "yup";
+import { derived, writable } from "svelte/store";
 
-//export const wbSchema = yup.object().shape({
-    //water: yup.number(),
-    //beans: yup.number(),
-//});
+const gramsPerOunce = 28.3495;
+function roundIt(x) {
+  return Math.round((x + Number.EPSILON) * 100) / 100;
+}
+function sanitize(s) {
+  const ns = parseFloat(s, 10);
+  if (isNaN(ns)) {
+    return 0;
+  }
+  return ns;
+}
 
-export const wbSchema = {
-    water: 0,
-    beans: 0,
-};
+export const waterBeans = 0;
+export const beansWater = 1;
+export const mode = writable(waterBeans);
+
+export const Grams = 0;
+export const Ounces = 1;
+export const beanUnits = writable(Grams);
+export const waterUnits = writable(Ounces);
+
+export const ratio = writable(17);
+
+export const water = writable(16);
+export const beans = writable(0);
+
+function numOrZero(s) {
+  const ns = parseFloat(s, 10);
+  if (isNaN(ns)) {
+    return 0;
+  }
+  return ns;
+}
+
+export const gotBeans = derived(
+  [water, waterUnits, beanUnits, ratio],
+  ([$water, $waterUnits, $beanUnits, $ratio]) => {
+    let water = numOrZero($water);
+    if ($waterUnits == Ounces) {
+      water *= gramsPerOunce;
+    }
+    let beans = water / $ratio;
+    if (beanUnits == Ounces) {
+      beans /= gramsPerOunce;
+    }
+    return roundIt(beans);
+  }
+);
