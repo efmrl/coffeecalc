@@ -1,5 +1,9 @@
 <script>
   import { water, gotBeans } from "./coffee.js";
+
+  function focus(e) {
+    e.focus();
+  }
 </script>
 
 <div class="grid grid-cols-2 content-start gap-2 mt-4 mx-8">

@@ -14,7 +14,7 @@ function sanitize(s) {
 
 export const waterBeans = 0;
 export const beansWater = 1;
-export const mode = writable(waterBeans);
+export const mode = writable(beansWater);
 
 export const Grams = 0;
 export const Ounces = 1;
@@ -24,7 +24,7 @@ export const waterUnits = writable(Ounces);
 export const ratio = writable(17);
 
 export const water = writable(16);
-export const beans = writable(0);
+export const beans = writable(10);
 
 function numOrZero(s) {
   const ns = parseFloat(s, 10);
@@ -46,5 +46,20 @@ export const gotBeans = derived(
       beans /= gramsPerOunce;
     }
     return roundIt(beans);
+  }
+);
+
+export const gotWater = derived(
+  [beans, beanUnits, waterUnits, ratio],
+  ([$beans, $beanUnits, $waterUnits, $ratio]) => {
+    let beans = numOrZero($beans);
+    if ($beanUnits == Ounces) {
+      beans *= gramsPerOunce;
+    }
+    let water = beans * $ratio;
+    if ($waterUnits == Ounces) {
+      water /= gramsPerOunce;
+    }
+    return roundIt(water);
   }
 );
