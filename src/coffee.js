@@ -47,3 +47,52 @@ export const output = derived(
     return roundIt(beans);
   }
 );
+
+export class CoffeeCalc {
+  constructor() {
+    this.ratio = 17;
+    this.waterUnits = Ounces;
+    this.beanUnits = Grams;
+    this.mode = waterBeans;
+  }
+
+  convert(input) {
+    input = sanitize(input);
+
+    if (this.mode == waterBeans) {
+      return this.water2Beans(input);
+    }
+
+    return this.beans2Water(input);
+  }
+
+  water2Beans(water) {
+    if (this.waterUnits == Ounces) {
+      water *= gramsPerOunce;
+    }
+    let beans = water / this.ratio;
+    if (this.beanUnits == Ounces) {
+      beans /= gramsPerOunce;
+    }
+    return roundIt(beans);
+  }
+
+  beans2Water(beans) {
+    if (this.beanUnits == Ounces) {
+      beans *= gramsPerOunce;
+    }
+    let water = beans * this.ratio;
+    if (this.waterUnits == Ounces) {
+      water /= gramsPerOunce;
+    }
+    return roundIt(beans);
+  }
+
+  inputName() {
+    if (this.mode == waterBeans) {
+      return "water";
+    }
+
+    return "beans";
+  }
+}
