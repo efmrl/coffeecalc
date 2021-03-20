@@ -34,6 +34,20 @@ export class CoffeeCalc {
     return this.beans2Water(input);
   }
 
+  swap() {
+    switch (this.mode) {
+      case waterBeans:
+        this.mode = beansWater;
+        break;
+      case beansWater:
+        this.mode = waterBeans;
+        break;
+      default:
+        this.mode = waterBeans;
+        break;
+    }
+  }
+
   water2Beans(water) {
     if (this.waterUnits == Ounces) {
       water *= gramsPerOunce;
@@ -53,7 +67,7 @@ export class CoffeeCalc {
     if (this.waterUnits == Ounces) {
       water /= gramsPerOunce;
     }
-    return roundIt(beans);
+    return roundIt(water);
   }
 
   inputName() {
