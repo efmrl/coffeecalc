@@ -78,6 +78,30 @@ export class CoffeeCalc {
     return "beans";
   }
 
+  inputUnits() {
+    if (this.mode == waterBeans) {
+      return this.unitTitle(this.waterUnits);
+    }
+    return this.unitTitle(this.beanUnits);
+  }
+
+  outputUnits() {
+    if (this.mode == waterBeans) {
+      return this.unitTitle(this.beanUnits);
+    }
+    return this.unitTitle(this.waterUnits);
+  }
+
+  unitTitle(which) {
+    switch (which) {
+      case Ounces:
+        return "ounces";
+      case Grams:
+        return "grams";
+    }
+    return "grams";
+  }
+
   inputTitle() {
     if (this.mode == waterBeans) {
       return "Water";
