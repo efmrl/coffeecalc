@@ -14,11 +14,24 @@
     calc.swap();
     ccInput = saveOut;
   }
+
+  function inputType() {
+    ccInput = calc.inputType(ccInput);
+  }
+  function outputType() {
+    calc.outputType();
+    const orig = ccInput;
+    ccInput = 7;
+    ccInput = orig;
+  }
 </script>
 
 <div class="flex-grow grid grid-cols-2 content-start gap-2 mt-4 mx-8">
   <label for="water" class="text-right">
-    <span class="words">{calc.inputTitle(ccInput)} in {calc.inputUnits(ccInput)}:</span>
+    <span class="words" on:click={inputType}
+      >{calc.inputTitle(ccInput)} in
+      <span class="clicky">{calc.inputUnits(ccInput)}</span>:</span
+    >
   </label>
   <input
     name={calc.inputName(ccInput)}
@@ -34,9 +47,18 @@
   </div>
 
   <div class="text-right">
-    <span class="words">{calc.outputTitle(ccInput)} in {calc.outputUnits(ccInput)}: </span>
+    <span class="words" on:click={outputType}
+      >{calc.outputTitle(ccInput)} in
+      <span class="clicky">{calc.outputUnits(ccInput)}</span>:
+    </span>
   </div>
   <div>
     <span class="words"> {calc.convert(ccInput)} </span>
   </div>
 </div>
+
+<style>
+  .clicky {
+    @apply underline cursor-pointer;
+  }
+</style>

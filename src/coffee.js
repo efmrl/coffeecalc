@@ -48,6 +48,48 @@ export class CoffeeCalc {
     }
   }
 
+  inputType(x) {
+    switch (this.mode) {
+      case waterBeans:
+        return this.switchWaterType(x);
+      case beansWater:
+        return this.switchBeanType(x);
+    }
+  }
+
+  outputType() {
+    switch (this.mode) {
+      case waterBeans:
+        this.switchBeanType();
+        break;
+      case beansWater:
+        this.switchWaterType();
+    }
+  }
+
+  switchWaterType(x) {
+    x = sanitize(x);
+    switch (this.waterUnits) {
+      case Ounces:
+        this.waterUnits = Grams;
+        return roundIt(x * gramsPerOunce);
+      case Grams:
+        this.waterUnits = Ounces;
+        return roundIt(x / gramsPerOunce);
+    }
+  }
+
+  switchBeanType(x) {
+    switch (this.beanUnits) {
+      case Ounces:
+        this.beanUnits = Grams;
+        return roundIt(x * gramsPerOunce);
+      case Grams:
+        this.beanUnits = Ounces;
+        return roundIt(x / gramsPerOunce);
+    }
+  }
+
   water2Beans(water) {
     if (this.waterUnits == Ounces) {
       water *= gramsPerOunce;
