@@ -1,7 +1,5 @@
 <script>
-  import {
-    CoffeeCalc,
-  } from "./coffee.js";
+  import { CoffeeCalc } from "./coffee.js";
 
   const calc = new CoffeeCalc();
   let ccInput = 16;
@@ -13,7 +11,7 @@
 
 <div class="flex-grow grid grid-cols-2 content-start gap-2 mt-4 mx-8">
   <label for="water" class="text-right">
-    <span class="words">Water in ounces:</span>
+    <span class="words">{calc.inputTitle()} in ounces:</span>
   </label>
   <input
     name={calc.inputName()}
@@ -25,7 +23,7 @@
   />
 
   <div class="text-right">
-    <span class="words"> Beans in grams: </span>
+    <span class="words">{calc.outputTitle()} in grams: </span>
   </div>
   <div>
     <span class="words"> {calc.convert(ccInput)} </span>
