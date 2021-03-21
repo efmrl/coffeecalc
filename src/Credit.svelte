@@ -2,10 +2,10 @@
   import { fly } from "svelte/transition";
   import { media } from "./media.js";
 
-  $: photo = $media.dark ? "Nathan Dumlao" : "Isaac Benhesed";
+  $: photo = $media.dark ? "Nathan Dumlao" : "Rizky Subagja";
   $: photoURL = $media.dark
     ? "https://unsplash.com/@nate_dumlao"
-    : "https://unsplash.com/@isaacbenhesed";
+    : "https://unsplash.com/@subagjav";
   let moreShow = false;
   let moreWord = "more";
 
