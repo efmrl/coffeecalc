@@ -62,6 +62,7 @@
       :1
     </span>
   </section>
+
   <label for="water" class="text-right">
     <span class="words" on:click={inputType}
       >{calc.inputTitle(ccInput)} in
