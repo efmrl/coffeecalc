@@ -45,7 +45,6 @@
       </span>
     {:else}
       <span
-        class="words"
         on:click={() => {
           editRatio = true;
         }}
