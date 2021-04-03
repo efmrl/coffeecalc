@@ -99,7 +99,7 @@
     name={calc.inputName(ccInput)}
     type="text"
     size="4"
-    class="words"
+    class="words w-16"
     bind:value={ccInput}
     use:focus
   />
