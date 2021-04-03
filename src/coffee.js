@@ -16,12 +16,40 @@ export const beansWater = 1;
 export const Grams = 0;
 export const Ounces = 1;
 
+const coffeeKey = "CoffeeCalc";
+
 export class CoffeeCalc {
   constructor() {
-    this.ratio = 17;
-    this.waterUnits = Ounces;
-    this.beanUnits = Grams;
-    this.mode = waterBeans;
+    const props = JSON.parse(localStorage.getItem(coffeeKey));
+
+    this.ratio = props?.ratio || 17;
+    this.ratioText = props?.ratioText || "drip / pour-over:";
+    this.waterUnits = props?.waterUnits || Ounces;
+    this.beanUnits = props?.beanUnits || Grams;
+    this.mode = props?.mode || waterBeans;
+    this.canSave = props?.canSave || false;
+
+    this.isDirty = false;
+  }
+
+  dirty() {
+    if (this.canSave) {
+      this.save();
+      return;
+    }
+    this.isDirty = true;
+  }
+
+  save() {
+    const props = JSON.stringify(this);
+    this.isDirty = false;
+    this.canSave = true;
+    
+    localStorage.setItem(coffeeKey, props);
+  }
+
+  offerSave() {
+    return this.isDirty;
   }
 
   convert(input) {

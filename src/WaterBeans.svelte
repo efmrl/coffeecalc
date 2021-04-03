@@ -6,7 +6,8 @@
   let ccInput = 16;
 
   let editRatio = false;
-  let ratioText = "drip / pour-over:";
+
+  let offerSave = false;
 
   function focus(e) {
     e.focus();
@@ -16,16 +17,27 @@
     const saveOut = calc.convert(ccInput);
     calc.swap();
     ccInput = saveOut;
+    dirty();
   }
 
   function inputType() {
     ccInput = calc.inputType(ccInput);
+    dirty();
   }
   function outputType() {
     calc.outputType();
     const orig = ccInput;
     ccInput = 7;
     ccInput = orig;
+    dirty();
+  }
+  function dirty() {
+    calc.dirty();
+    offerSave = calc.offerSave();
+  }
+  function save() {
+    calc.save();
+    offerSave = false;
   }
 </script>
 
@@ -36,7 +48,8 @@
         <button
           on:mousedown={() => {
             calc.ratio = 17;
-            ratioText = "drip / pour-over:";
+            calc.ratioText = "drip / pour-over:";
+            dirty();
           }}
         >
           drip / pour-over
@@ -44,7 +57,8 @@
         <button
           on:mousedown={() => {
             calc.ratio = 12;
-            ratioText = "french press:";
+            calc.ratioText = "french press:";
+            dirty();
           }}
         >
           french press
@@ -52,7 +66,8 @@
         <button
           on:mousedown={() => {
             calc.ratio = 7;
-            ratioText = "moka pot:";
+            calc.ratioText = "moka pot:";
+            dirty();
           }}
         >
           moka pot
@@ -65,7 +80,8 @@
             editRatio = false;
           }}
           on:change={() => {
-            ratioText = "";
+            calc.ratioText = "";
+            dirty();
           }}
           on:keypress={(e) => {
             if (e.key == "Enter") {
@@ -83,7 +99,7 @@
         }}
         class="words clicky"
       >
-        {ratioText}
+        {calc.ratioText}
         {calc.ratio}:1
       </span>
     {/if}
@@ -101,6 +117,7 @@
     size="4"
     class="words w-16"
     bind:value={ccInput}
+    on:change={dirty}
     use:focus
   />
 
@@ -117,6 +134,12 @@
   <div>
     <span class="words"> {calc.convert(ccInput)} </span>
   </div>
+
+  {#if offerSave}
+    <button class="words clicky place-self-center col-span-2" on:click={save}>
+      save
+    </button>
+  {/if}
 </div>
 
 <style>
