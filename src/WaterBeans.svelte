@@ -6,6 +6,7 @@
   let ccInput = 16;
 
   let editRatio = false;
+  let ratioText = "drip / pour-over:";
 
   function focus(e) {
     e.focus();
@@ -31,7 +32,31 @@
 <div class="flex-grow grid grid-cols-2 content-start gap-2 mt-4 mx-8">
   <section class="words place-self-center col-span-2">
     {#if editRatio}
-      <span>
+      <span class="picker">
+        <button
+          on:mousedown={() => {
+            calc.ratio = 17;
+            ratioText = "drip / pour-over:";
+          }}
+        >
+          drip / pour-over
+        </button>
+        <button
+          on:mousedown={() => {
+            calc.ratio = 12;
+            ratioText = "french press:";
+          }}
+        >
+          french press
+        </button>
+        <button
+          on:mousedown={() => {
+            calc.ratio = 7;
+            ratioText = "moka pot:";
+          }}
+        >
+          moka pot
+        </button>
         <input
           type="text"
           size="3"
@@ -39,27 +64,29 @@
           on:blur={() => {
             editRatio = false;
           }}
+          on:change={() => {
+            ratioText = "";
+          }}
+          on:keypress={(e) => {
+            if (e.key == "Enter") {
+              e.target.blur();
+            }
+          }}
           bind:value={calc.ratio}
           use:focus
-        />
+        />:1
       </span>
     {:else}
       <span
         on:click={() => {
           editRatio = true;
         }}
+        class="words clicky"
       >
-        {calc.ratio}
+        {ratioText}
+        {calc.ratio}:1
       </span>
     {/if}
-    <span
-      class="clicky"
-      on:click={() => {
-        editRatio = !editRatio;
-      }}
-    >
-      :1
-    </span>
   </section>
 
   <label for="water" class="text-right">
@@ -95,5 +122,9 @@
 <style>
   .clicky {
     @apply underline cursor-pointer;
+  }
+
+  .picker button {
+    @apply bg-coffee-adept text-white p-1 rounded;
   }
 </style>
