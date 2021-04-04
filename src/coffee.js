@@ -10,11 +10,11 @@ function sanitize(s) {
   return ns;
 }
 
-export const waterBeans = 0;
-export const beansWater = 1;
+export const waterBeans = 1;
+export const beansWater = 2;
 
-export const Grams = 0;
-export const Ounces = 1;
+export const Grams = 1;
+export const Ounces = 2;
 
 const coffeeKey = "CoffeeCalc";
 
@@ -24,11 +24,16 @@ export class CoffeeCalc {
 
     this.initialInput = props?.initialInput || 16;
     this.ratio = props?.ratio || 17;
-    this.ratioText = props?.ratioText || "drip / pour-over:";
     this.waterUnits = props?.waterUnits || Ounces;
     this.beanUnits = props?.beanUnits || Grams;
     this.mode = props?.mode || waterBeans;
     this.canSave = props?.canSave || false;
+
+    // because empty string is falsy, we have to handle it a bit different
+    this.ratioText = props?.ratioText;
+    if (this.ratioText === undefined) {
+      this.ratioText = "drip / pour-over:";
+    }
 
     this.isDirty = false;
   }
@@ -45,7 +50,7 @@ export class CoffeeCalc {
     this.isDirty = false;
     this.canSave = true;
     const props = JSON.stringify(this);
-    
+
     localStorage.setItem(coffeeKey, props);
   }
 
