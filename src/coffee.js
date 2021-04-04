@@ -42,9 +42,9 @@ export class CoffeeCalc {
   }
 
   save() {
-    const props = JSON.stringify(this);
     this.isDirty = false;
     this.canSave = true;
+    const props = JSON.stringify(this);
     
     localStorage.setItem(coffeeKey, props);
   }
