@@ -3,7 +3,7 @@
   import Arrows16 from "carbon-icons-svelte/lib/Arrows16";
 
   const calc = new CoffeeCalc();
-  let ccInput = 16;
+  let ccInput = calc.initialInput;
 
   let editRatio = false;
 

@@ -22,6 +22,7 @@ export class CoffeeCalc {
   constructor() {
     const props = JSON.parse(localStorage.getItem(coffeeKey));
 
+    this.initialInput = props?.initialInput || 16;
     this.ratio = props?.ratio || 17;
     this.ratioText = props?.ratioText || "drip / pour-over:";
     this.waterUnits = props?.waterUnits || Ounces;
@@ -54,6 +55,7 @@ export class CoffeeCalc {
 
   convert(input) {
     input = sanitize(input);
+    this.initialInput = input;
 
     if (this.mode == waterBeans) {
       return this.water2Beans(input);
