@@ -1,0 +1,5 @@
+base_host = "efmrl.samf.workers.dev"
+
+[site]
+  site_id = "e35e3bf3-5894-44d9-8f6a-e4fe0bd4342f"
+  dir = "build"
